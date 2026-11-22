@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "issue_id": "external-002",
+  "stream": "external-day",
+  "revision_id": "outside-r2",
+  "predecessor": "outside-r1",
+  "ordinal": 2,
+  "default_price": 7,
+  "rows": [
+    {"original_id": "jia", "station": "east", "quantity": 1, "price_kind": "explicit", "source_price": 5},
+    {"original_id": "yi", "station": "east", "quantity": 1, "price_kind": "default", "source_price": null},
+    {"original_id": "bing", "station": "west", "quantity": 1, "price_kind": "default", "source_price": null}
+  ],
+  "evidence": {
+    "frozen_v1": {
+      "original_ids": ["jia", "yi", "bing"],
+      "sha256": "99ea7a23d4013d9c54e8d07de214d32c1f419469833f7a9fe93fc9c45c39176e"
+    }
+  }
+}

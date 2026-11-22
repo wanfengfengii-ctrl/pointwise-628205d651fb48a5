@@ -1,0 +1,11 @@
+{
+  "stream": "binqu-day",
+  "default_r1": 5,
+  "default_r2": 7,
+  "rows": [
+    {"original_id": "jia", "station": "east", "quantity": 1, "source_price": 5},
+    {"original_id": "yi", "station": "east", "quantity": 1},
+    {"original_id": "bing", "station": "west", "quantity": 1}
+  ],
+  "confirmation": {"original_id": "yi", "price": 5}
+}
