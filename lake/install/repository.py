@@ -8,6 +8,7 @@ from lake.install.history import initialize_history
 from lake.install.rebase import InstalledBase, InstalledRow
 from lake.review.journal import initialize_journal
 from lake.settle.repository import initialize_receipts
+from lake.settle.signoff import initialize_signoff
 
 
 class WarehouseStore:
@@ -56,6 +57,7 @@ class WarehouseStore:
             ''')
             initialize_journal(connection)
             initialize_receipts(connection)
+            initialize_signoff(connection)
 
     @contextmanager
     def _transaction(self, begin: str):

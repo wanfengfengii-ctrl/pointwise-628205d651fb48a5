@@ -4,6 +4,7 @@ from lake.exchange.receive import receive_bundle
 from lake.install.history import append_installation, read_installation
 from lake.install.rebase import InstalledBase, prepare_base
 from lake.install.repository import WarehouseStore, load_base, replace_base
+from lake.settle.signoff import evaluate_pending_signoffs
 
 
 def load_active_base(connection: sqlite3.Connection) -> InstalledBase | None:
@@ -19,4 +20,5 @@ def install(store: WarehouseStore, data: bytes | str) -> str:
             raise ValueError('revision is already recorded in installation history')
         replace_base(connection, prepared)
         append_installation(connection, prepared)
+        evaluate_pending_signoffs(connection, 'install', prepared.revision_id)
     return prepared.revision_id

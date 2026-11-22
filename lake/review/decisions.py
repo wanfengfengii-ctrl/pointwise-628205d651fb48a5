@@ -7,6 +7,7 @@ from lake.install.repository import WarehouseStore
 from lake.review.confirm import record_confirmation
 from lake.review.journal import load_latest_decisions
 from lake.review.withdraw import record_withdrawal
+from lake.settle.signoff import evaluate_pending_signoffs
 from lake.source.rows import require_identifier
 
 
@@ -38,6 +39,7 @@ def decide(
         else:
             sequence = record_withdrawal(connection, base, original_id)
         decision = Decision(sequence, base.stream, original_id, base.revision_id, price)
+        evaluate_pending_signoffs(connection, 'review', sequence)
     return decision
 
 
